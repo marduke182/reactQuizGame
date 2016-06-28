@@ -8,8 +8,8 @@ export default class Question extends React.Component {
   render() {
     return (
       <div>
-        <QuestionText text={this.props.text} />
-        <AnswerList answers={this.props.answers} />
+        <QuestionText text={this.props.text} id={this.props.questionId}/>
+        <AnswerList answers={this.props.answers} name={this.props.questionId} />
       </div>
     );
   }
@@ -17,6 +17,7 @@ export default class Question extends React.Component {
 
 Question.propTypes = {
   text: PropTypes.string.isRequired,
+  questionId: PropTypes.string.isRequired,
   answers: PropTypes.arrayOf(PropTypes.shape({
      text: PropTypes.string.isRequired,
      value: PropTypes.string.isRequired,

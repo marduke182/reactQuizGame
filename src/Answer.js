@@ -1,13 +1,18 @@
-import React, {
-  PropTypes,
-} from 'react';
+import React, {  PropTypes } from 'react';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+
 
 export default class Answer extends React.Component {
   render() {
     return (
       <label>
+        <p>
+          <input type='radio' value={this.props.value} />
           {this.props.text}
-          <input type='radio' value={this.props.value} name={this.props.name}></input>
+        </p>
       </label>
     );
   }
@@ -15,8 +20,7 @@ export default class Answer extends React.Component {
 
 Answer.propTypes = {
   text: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired
 };
 
 Answer.defaultProps = {};
