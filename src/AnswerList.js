@@ -27,7 +27,6 @@ export default class AnswerList extends React.Component {
 
   handleChange = (event,value) => {
     this.setState({value});
-    console.log(this.state.value);
   };
 
   render() {
