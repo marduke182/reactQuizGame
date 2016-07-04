@@ -19,6 +19,10 @@ const hideButton = {
   display: 'none',
 };
 
+const rightButton = {
+  float: 'right',
+}
+
 export default class ActionButtonsBar extends React.Component {
 
   state = {
@@ -36,7 +40,7 @@ export default class ActionButtonsBar extends React.Component {
           <LeftIcon />
         </FloatingActionButton>
 
-        <FloatingActionButton >
+        <FloatingActionButton style={rightButton}>
           <RightIcon />
         </FloatingActionButton>
 
@@ -47,9 +51,5 @@ export default class ActionButtonsBar extends React.Component {
     );
   }
 }
-
-ActionButtonsBar.propTypes = {
-  muiTheme: React.PropTypes.object.isRequired,
-};
 
 ActionButtonsBar.childContextTypes = {muiTheme: React.PropTypes.object};

@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import mui from 'material-ui';
 
 import Question from './Question.js';
 import TopBarAndMenu from './TopBarAndMenu.js';
-import ActionButtonsBar from './ActionButtonsBar.js';
+import { Grid,Row,Col } from 'react-flexbox-grid/lib/index';
+
+import {deepOrange500} from 'material-ui/styles/colors';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+const muiTheme = getMuiTheme({
+  palette: {
+    accent1Color: deepOrange500,
+  },
+});
+
 
 
 export default class App extends Component {
@@ -49,16 +59,27 @@ export default class App extends Component {
 
     let rows = [];
     questions.forEach(function(question){
-      rows.push(<Question text={question.questionText} answers={question.answers} questionId={question.questionId}/>)
+      rows.push(<Question text={question.questionText} answers={question.answers} key={question.questionId} questionId={question.questionId} />)
     });
 
     return (
-      <div>
-        <TopBarAndMenu />
-        <h1>Question App with react</h1>
-          {rows}
-        <ActionButtonsBar />
-      </div>
+      <Grid lg={12} >
+        <Row>
+          <Col xs={12} sm={12} md={12} lg={10} lgOffset={1} >
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <TopBarAndMenu />
+              </Col>
+              <Col xs={12} sm={12} md={12}  lg={12}  >
+                <h1>Question App with react</h1>
+              </Col>
+              <Col xs={12} sm={12} md={10} mdOffset={1} lg={10} lgOffset={1} >
+                {rows}
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }

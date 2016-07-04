@@ -22,10 +22,16 @@ module.exports = {
       loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'src')
     },
-    // { test: /\.css$/, loader: 'style!css' },
+    {
+      test: /\.css$/,
+      loader: 'style!css?modules',
+      include: /flexboxgrid/,
+    },
     {
       test: /\.scss$/,
-      loaders: ["style", "css", "sass"]
+      loader: 'style!css!postcss!sass',
+      include: path.join(__dirname, 'node_modules'), // this also includes flexboxgrid
+      exclude: /flexboxgrid/, // so we are excluding it
     }]
   }
 };

@@ -39,14 +39,16 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
+    "babel-runtime": "^6.9.2",
     "classnames": "^2.2.5",
     "core-js": "^2.4.0",
+    "flexboxgrid": "^6.3.0",
     "material-ui": "^0.15.1",
     "normalize.css": "^4.1.1",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
     "react-css-themr": "^1.1.0",
-    "react-dom": "^15.1.0",    
+    "react-dom": "^15.1.0",
     "style-loader": "^0.13.1",
     "toolkit": "^1.5.4"
   }

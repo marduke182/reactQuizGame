@@ -51,8 +51,5 @@ export default class TopBarAndMenu extends React.Component {
   }
 }
 
-TopBarAndMenu.propTypes = {
-  muiTheme: React.PropTypes.object.isRequired,
-};
 
 TopBarAndMenu.childContextTypes = {muiTheme: React.PropTypes.object};
