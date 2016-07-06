@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import TestQuiz from './TestQuiz.js';
 import Question from './Question.js';
 import TopBarAndMenu from './TopBarAndMenu.js';
 import { Grid,Row,Col } from 'react-flexbox-grid/lib/index';
@@ -14,53 +15,53 @@ const muiTheme = getMuiTheme({
   },
 });
 
+const QUESTIONS = [{
+  'questionId' :'1',
+  'questionText' : 'first question text here',
+  'answers' : [{
+    'text' : 'a1',
+    'value' : '1',
+    'id' : '0',
+  },
+  {
+    'text' : 'a2',
+    'value' : '0',
+    'id' : '1',
+  },
+  {
+    'text' : 'a3',
+    'value' : '2',
+    'id' : '2',
+  }]
+},
+{
+  'questionId' :'2',
+  'questionText' : 'second question text here',
+  'answers' : [{
+    'text' : 'b1',
+    'value' : '1',
+    'id' : '0',
+  },
+  {
+    'text' : 'b2',
+    'value' : '0',
+    'id' : '1',
+  },
+  {
+    'text' : 'b3',
+    'value' : '2',
+    'id' : '2',
+  }]
+}];
 
 
 export default class App extends Component {
-  render() {
-    let questions =[{
-      'questionId' :'1',
-      'questionText' : 'first question text here',
-      'answers' : [{
-        'text' : 'a1',
-        'value' : '1',
-        'id' : '0',
-      },
-      {
-        'text' : 'a2',
-        'value' : '0',
-        'id' : '1',
-      },
-      {
-        'text' : 'a3',
-        'value' : '2',
-        'id' : '2',
-      }]
-    },
-    {
-      'questionId' :'2',
-      'questionText' : 'second question text here',
-      'answers' : [{
-        'text' : 'b1',
-        'value' : '1',
-        'id' : '0',
-      },
-      {
-        'text' : 'b2',
-        'value' : '0',
-        'id' : '1',
-      },
-      {
-        'text' : 'b3',
-        'value' : '2',
-        'id' : '2',
-      }]
-    }];
 
-    let rows = [];
-    questions.forEach(function(question){
-      rows.push(<Question text={question.questionText} answers={question.answers} key={question.questionId} questionId={question.questionId} />)
-    });
+  state = {
+      test : "1",
+  };
+
+  render() {
 
     return (
       <Grid lg={12} >
@@ -74,7 +75,7 @@ export default class App extends Component {
                 <h1>Question App with react</h1>
               </Col>
               <Col xs={12} sm={12} md={10} mdOffset={1} lg={10} lgOffset={1} >
-                {rows}
+                <TestQuiz questions = {QUESTIONS} />
               </Col>
             </Row>
           </Col>

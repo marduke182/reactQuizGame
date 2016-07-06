@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Boilerplate for ReactJS project with hot code reloading",
   "scripts": {
-    "start": "node server.js",
+    "start": "google-chrome http://localhost:3000 && node server.js",
     "lint": "eslint src"
   },
   "repository": {
@@ -49,6 +49,7 @@
     "react-addons-css-transition-group": "^15.1.0",
     "react-css-themr": "^1.1.0",
     "react-dom": "^15.1.0",
+    "react-flexbox-grid": "^0.9.6",
     "style-loader": "^0.13.1",
     "toolkit": "^1.5.4"
   }

@@ -5,7 +5,7 @@ import  QuestionText  from './QuestionText.js';
 import ActionButtonsBar from './ActionButtonsBar.js';
 import mui from 'material-ui';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import { Col } from 'react-flexbox-grid/lib/index';
+import { Col, Row } from 'react-flexbox-grid/lib/index';
 
 import {deepOrange500} from 'material-ui/styles/colors';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -21,24 +21,24 @@ export default class Question extends React.Component {
 
   render() {
     return (
-      <Col xs={12} sm={12} md={10} mdOffset={1} lg={8} lgOffset={2} >
-      <Card>
-        <CardHeader
-          title="Test 1"
-          subtitle="Basic knowledge"
-          avatar="http://lorempixel.com/100/100/nature/"
-        />
 
-        <CardTitle title="Card title" subtitle="Card subtitle" />
-        <CardText>
-          <QuestionText text={this.props.text} id={this.props.questionId}/>
-          <AnswerList answers={this.props.answers} name={this.props.questionId} />
-        </CardText>
-        <CardActions>
-          <ActionButtonsBar />
-        </CardActions>
-      </Card>
-    </Col>
+        <Col xs={12} sm={12} md={12}  lg={12}>
+          <Card>
+            <CardHeader
+              title="Test 1"
+              subtitle="Basic knowledge"
+              avatar="http://lorempixel.com/100/100/nature/"
+            />
+
+            <CardTitle title="Card title" subtitle="Card subtitle" />
+            <CardText>
+              <QuestionText text={this.props.text} id={this.props.questionId}/>
+              <AnswerList answers={this.props.answers} name={this.props.questionId} />
+            </CardText>
+
+        </Card>
+      </Col>
+
     );
   }
 }

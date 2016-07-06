@@ -9,6 +9,8 @@ import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import { Col } from 'react-flexbox-grid/lib/index';
+
 const muiTheme = getMuiTheme({
   palette: {
     accent1Color: deepOrange500,
@@ -18,6 +20,9 @@ const muiTheme = getMuiTheme({
 const hideButton = {
   display: 'none',
 };
+const margin = {
+  padding : 25,
+};
 
 const rightButton = {
   float: 'right',
@@ -26,7 +31,8 @@ const rightButton = {
 export default class ActionButtonsBar extends React.Component {
 
   state = {
-    finished : false,
+    previousActivated: this.props.previousActivated,
+    nextActivated: this.props.nextActivated
   };
 
   getChildContext() {
@@ -35,21 +41,31 @@ export default class ActionButtonsBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <FloatingActionButton >
+      <Col xs={12} sm={12} md={12} lg={12} >
+        <div style={margin} >
+        <FloatingActionButton onClick={this.props.previousQuestion} disabled={!this.state.previousActivated} >
           <LeftIcon />
         </FloatingActionButton>
 
-        <FloatingActionButton style={rightButton}>
+        <FloatingActionButton style={rightButton} onClick= {this.props.nextQuestion} disabled= {!this.state.nextActivated}>
           <RightIcon />
         </FloatingActionButton>
 
         <FloatingActionButton style={hideButton}>
           <FinishIcon />
         </FloatingActionButton>
-      </div>
+        </div>
+      </Col>
     );
   }
 }
+
+ActionButtonsBar.propTypes = {
+  nextQuestion :PropTypes.function,
+  previousQuestion: PropTypes.function,
+  nextActivated: PropTypes.boolean,
+  previousActivated: PropTypes.boolean
+}
+
 
 ActionButtonsBar.childContextTypes = {muiTheme: React.PropTypes.object};
